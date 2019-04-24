@@ -1,0 +1,61 @@
+<% include /partials/Header %>
+
+</head>
+
+<body>
+
+  <% include /partials/navbar %>
+
+
+<div id="Form2"> 
+   <form class="col s10" method="POST" action="/addUniversity">
+
+  
+  <div class="row">
+    
+    <div class="row">
+        <div class="input-field hoverable col s10 Form2Field">
+          <i class="material-icons Form2Field prefix">account_circle</i>
+          <input id="ID" name="ID" type="text" class="validate" >
+          <label for="ID">University Name</label>
+        </div>
+  </div>
+  <div class="row">
+    <div class="input-field hoverable col s10 Form2Field">
+      <i class="material-icons Form2Field prefix">account_circle</i>
+      <input id="email" name="email" type="text" class="validate" >
+      <label for="email">University Email</label>
+    </div>
+</div>
+  <div class="row">
+    <div class="input-field Form2Field hoverable col s10">
+      <i class="material-icons  Form2Field prefix">vpn_key</i>
+      <input id="password"name="password"  type="password" class="validate">
+      <label for="password">Password</label>
+    </div>  
+  </div>
+
+  <div class="row">
+      <div class="input-field Form2Field hoverable col s10">
+          <i class="material-icons prefix Form2Field ">replay</i>
+          <input id="password2" type="password" class="validate">
+          <label for="password2">Retype Password</label>
+        </div>
+  </div>
+  <input  class="waves-effect waves-light btn-small right hoverable white-text " type="submit"  value="Invite">
+</form>
+</div>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+ 
+
+
+</script>
+</html>

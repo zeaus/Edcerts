@@ -1,0 +1,84 @@
+<% include partials/Header %>
+
+<body>
+
+  <div id="particles-js"></div> <!-- stats - count particles -->
+  <% include partials/Navbar %>
+  <div class="container2 col s10 m4 l8">
+    <div class="row">
+      <nav>
+        <div class="nav-wrapper">
+          <div class="col s10">
+            <h4>Sign In</h4>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <form class="col s12" method="POST" action="/login" id="submitform">
+
+      <div class="row">
+        <div class="input-field hoverable col s10">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="ID" name="ID" type="text" class="validate">
+          <label id="id-label" for="ID">ID</label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="input-field hoverable col s10">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="password" name="password" type="password" class="validate">
+          <label id="password-label" for="password">Password</label>
+        </div>
+
+      </div>
+
+    </form>
+    <a id="formBtn" class="waves-effect waves-light btn-small right hoverable white-text ">Done</a>
+
+  </div>
+
+
+</body>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  
+<% include partials/Footer %>
+<script>
+
+  document.getElementById("formBtn").addEventListener('click', function (params) {
+  
+    var id = $.trim($('#ID').val());
+    var pass = $.trim($('#password').val());
+
+    var check = true;
+    if (id  === '') {
+      
+      $('#id-label').css('color','red');
+      $('#id-label').text('ID (required)');
+      check = false;
+    }
+    else{
+      $('#id-label').text('ID');
+      $('#id-label').css('color', 'grey');
+    }
+
+    if (pass  === '') {
+      
+      $('#password-label').css('color','red');
+      $('#password-label').text('Password (required)');
+      check = false;
+    }
+    else{
+      $('#password-label').text('Password');
+      $('#password-label').css('color', 'grey');
+
+    }
+    if (!check){
+      return false;
+    }
+    $('#submitform').submit();
+  });
+</script> 

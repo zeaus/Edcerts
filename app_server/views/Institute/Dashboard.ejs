@@ -1,0 +1,52 @@
+<% include /partials/Header %>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+     // Load the Visualization API and the corechart package.
+     google.charts.load('current', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Graduates', { role: 'style' } ],
+        ['2014', 120, 'color: gray'],
+        ['2015', 140, 'color: #76A7FA'],
+        ['2016', 135, 'opacity: 0.2'],
+        ['2017', 122, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+        ['2018', 145, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+      ]); var options = {'title':'Degrees Issued per Year',
+                 'width':800,
+                 'height':600};
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+  chart.draw(data, options);}
+  </script>
+</head>
+
+<body>
+  <% include /partials/navbar %>
+
+  <div class="center">
+<h4>Statistics</h4>
+<div id="chart_div"></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</html>

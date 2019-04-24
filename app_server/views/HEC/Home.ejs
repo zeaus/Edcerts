@@ -1,0 +1,50 @@
+
+<% include /partials/Header %>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+     // Load the Visualization API and the corechart package.
+     google.charts.load('current', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+
+// Callback that creates and populates a data table,
+// instantiates the pie chart, passes in the data and
+// draws it.
+function drawChart() {
+
+  // Create the data table.
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Universities');
+  data.addColumn('number', 'Province');
+  data.addRows([
+    ['Punjab', 3],
+    ['Baluchistan', 0.1],
+    ['KPK', 1],
+    ['Sindh', 2],
+    ['Federal', 2]
+  ]);
+
+  // Set chart options
+  var options = {'title':'Number of Universities in each Province',
+                 'width':800,
+                 'height':600};
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+    
+  <% include /partials/navbar %>
+  <div class="center">
+<h3>Statistics</h3>
+<div id="chart_div"></div></div>
+ </body>
+  
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</html>

@@ -1,0 +1,104 @@
+<% include /partials/Header %>
+
+</head>
+
+<body>
+    <% include /partials/navbar %>
+    <div class="card hovercard">
+        <div class="card-background white">
+            <li style="display:inline;"><a href="/Institute/Certificate/Draft">Drafts ></a></li>
+        </div>
+        <div>
+            <h5>Degree Title</h5>
+        </div>
+        <div id="CerOps">
+            <a class="waves-effect waves-light btn-small certbtn black-text">Preview</a>
+            <a class="waves-effect waves-light btn-small certbtn black-text">Edit</a>
+            <a class="waves-effect waves-light btn-small certbtn black-text" onclick="$('#modal1').modal('open');">Issue</a>
+        </div>
+        <br>
+
+    </div>
+    <div class="center">
+        <div class="chip">
+            <a href="">Layout</a>
+        </div>
+        <div class="chip">
+            <a href="">MetaData</a>
+        </div>
+    </div>
+
+    <div id="A4Layout">
+        <img src="/images/logo.png" id="logo" alt="">
+        <div id="Fields">
+
+            <h3 class="center">
+                <%= degree.Title %>
+            </h3>
+            <% degree.Fields.forEach( function(degree) { %>
+            <h4>
+                <%=  degree %>
+            </h4>
+            <% }) %>
+            <h6>Lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit.</h6>
+        </div>
+    </div>
+
+    <div id="modal1" class="modal modalDegreesend">
+        <div class="modal-content">
+
+
+            <form class="col s10" method="POST" action="/IssueCertificates" id="IssueCertificatesForm">
+
+
+                <div class="row">
+                    <input type="text" name="templateid" id="templateid" value="" hidden>
+                    <div class="input-field col s12">
+                        <select name="recepient">
+                            <option value="" disabled selected>Choose your option</option>
+                            <% recep.forEach( function(r) { %>
+                            <option value="<%= r.Name%>">
+                                <%= r.Name %>
+                            </option>
+                            <% }) %>
+                        </select>
+                        <label>Recipient</label>
+                    </div>
+
+
+
+                </div>
+
+            </form>
+        </div>
+
+        <a id="IssueCertBtn" class="modal-close waves-effect right waves-green btn-flat">Issue</a>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+</script>
+
+<script>
+    $('#IssueCertBtn').on('click', () => {
+
+        $('#templateid').val(window.location.pathname.slice(23))
+
+        $('#IssueCertificatesForm').submit();
+
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+</script>
+
+</html>

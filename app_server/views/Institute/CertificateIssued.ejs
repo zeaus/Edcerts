@@ -1,0 +1,83 @@
+<% include /partials/Header %>
+
+</head>
+
+<body>
+  <% include /partials/navbar %>
+
+  <% include /partials/CertificateCard %>
+  <div id="recep">
+    <table class="centered responsive-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Batch</th>
+          <th>Recipients</th>
+          <th>Pending</th>
+          <th>Last Issued</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>BSCS
+          </td>
+          <td>1</td>
+          <td>0</td>
+          <td>120</td>
+          <td>01-05-2019</td>
+        </tr>
+        <tr>
+          <td>Civil
+          </td>
+          <td>2</td>
+          <td>0</td>
+          <td>40</td>
+          <td>01-05-2019</td>
+        </tr>
+        <tr>
+          <td>BSCS
+          </td>
+          <td>2</td>
+          <td>0</td>
+          <td>140</td>
+          <td>01-05-2020</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.modal').modal();
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $("#createbtn").click(function () {
+      var attributes = [];
+      $.each($("input[name='sport']:checked"), function () {
+        attributes.push($(this).val());
+      });
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $("#createbtn").click(function () {
+      var favorite = [];
+      $.each($("input[name='feature']:checked"), function () {
+        favorite.push($(this).val());
+      });
+      $('#DegreeForm').submit();
+    });
+  });
+</script>
+
+</html>
