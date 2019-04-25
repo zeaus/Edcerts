@@ -29,6 +29,7 @@
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
+    "jquery": "^3.4.0",
     "jquery-validation": "^1.19.0",
     "merkletreejs": "0.0.22",
     "mongod": "^2.0.0",
