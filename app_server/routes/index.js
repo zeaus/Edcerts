@@ -80,7 +80,7 @@ router.post('/addCentralAuthority', Admin.AddCentralAuthority);
 
 router.get('/Admin/home/ListOfCentralAuthorities', checkIfLoggedIn, Admin.ShowCentralAuthorityList);
 
-router.delete('/delete/:id', Admin.deleteCentralAuthority);
+router.delete('/delete/Admin/:id', Admin.deleteCentralAuthority);
 
 router.get('/Admin/home', checkIfLoggedIn, function (req, res) {
   var InstituteName = req.session.name;
@@ -152,7 +152,7 @@ router.post('/SetPassword', Institute.setPassword)
 
 
 router.get('/logout', extras.logout);
-router.delete('/delete/:id', HEC.deleteUni);
+router.delete('/delete/HEC/:id', HEC.deleteUni);
 
 router.patch('/UpdatePublicKey/:id/:pkey',Institute.UpdatePublicKey)
 router.get('/GetCertificate/:pkey',Institute.GetCertificates)

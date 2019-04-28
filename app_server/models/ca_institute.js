@@ -6,4 +6,4 @@ var CA_InstituteSchema = new mongoose.Schema({
     institute_id: String
 });
 
-module.exports = mongoose.model('ca_institute', CA_InstituteSchema);
+module.exports = mongoose.model('Ca_institute', CA_InstituteSchema);

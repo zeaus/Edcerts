@@ -40,7 +40,7 @@ $('.remove').click( function() {
   var title=$(removeButton).attr("data-id");
 
   $.ajax({
-    url:'/delete/'+title,
+    url:'/delete/Admin/'+title,
     type: 'DELETE',
     success: function (result) {
         location.reload();
