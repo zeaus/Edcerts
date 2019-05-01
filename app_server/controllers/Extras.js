@@ -46,16 +46,19 @@ module.exports.login = function (req, res) {
           if (user.tier == 1) {
             req.session.uid = user._id;
             req.session.name = user.ID;
+            req.session.tier = user.tier;
             res.redirect('/Admin/home');
           }
           else if (user.tier == 2) {
             req.session.uid = user._id;
             req.session.name = user.ID;
+            req.session.tier = user.tier;
             res.redirect('/HEC/home');
           } 
           else {  //user.tier == 3
             req.session.uid = user._id;
             req.session.name = user.ID;
+            req.session.tier = user.tier;
             user.updateOne({
               $inc: {
                 Activity: 1
