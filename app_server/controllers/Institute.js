@@ -5,6 +5,8 @@ var certificate = require('../models/certificate');
 const bcrypt = require('bcryptjs');
 var XLSX = require('xlsx')
 var recepient = require('../models/recepient');
+var student = require('../models/student_info');
+
 var blockchain=require('../controllers/BlockChain')
 
 
@@ -122,6 +124,25 @@ module.exports.uploadRecepient = function (req, res) {
     var sheet_name_list = workbook.SheetNames;
     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
     console.log(xlData);
+
+
+    let studentInfo = new student({
+        data: xlData,
+        InstituteID: req.session.uid,
+        Name: req.file.filename.slice(0, -5)
+    });
+
+    studentInfo.save(function (err, result) {
+        if (err) {
+            console.log(err);
+            throw err;
+        } else {
+            console.log(result);
+
+        }
+    });
+
+
 
 
     console.log(xlData.length)
