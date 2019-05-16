@@ -5,6 +5,11 @@
 <body>
   <% include /partials/navbar %>
   <div>
+    <div id="EmailSending">
+      <form method="POST" action="/sendEmail" id="sendEmail">
+        <a class="waves-effect waves-light btn-small right hoverable white-text" id="submitform" value="sendEmail">Send Email</a>
+      </form>
+    </div>
     <h4>Recipients</h4>
 
     <form enctype="multipart/form-data">

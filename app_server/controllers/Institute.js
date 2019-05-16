@@ -219,3 +219,8 @@ module.exports.IssueCertificates = function (req, res) {
     })
     res.redirect('back')
 }
+
+module.exports.sendEmail = function (req, res) {
+    console.log("Send Email!");
+    res.redirect('/Institute/Recipients')
+}

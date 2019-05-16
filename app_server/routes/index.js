@@ -164,6 +164,8 @@ router.post('/uploadRecipient', checkIfInstituteTier, upload.single('file'), Ins
 
 router.post('/SetPassword', checkIfInstituteTier, Institute.setPassword);
 
+router.post('/sendEmail', checkIfInstituteTier, Institute.sendEmail);
+
 router.patch('/UpdatePublicKey/:id/:pkey', checkIfInstituteTier, Institute.UpdatePublicKey);
 
 router.get('/GetCertificate/:pkey', checkIfInstituteTier, Institute.GetCertificates);
