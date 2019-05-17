@@ -49,4 +49,6 @@ process.on('SIGTERM', function () {
 
 require('./entity');
 require('./certificate');
+require('./ca_institute');
+require('./admin_ca');
 
