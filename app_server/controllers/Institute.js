@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 var XLSX = require('xlsx')
 var recepient = require('../models/recepient');
 var student = require('../models/student_info');
+var nodemailer = require('nodemailer');
 
 var blockchain=require('../controllers/BlockChain')
 
@@ -142,9 +143,6 @@ module.exports.uploadRecepient = function (req, res) {
         }
     });
 
-
-
-
     console.log(xlData.length)
     /*
     var wb = XLSX.readFile("./public/Uploads/"+req.file.filename);
@@ -243,5 +241,44 @@ module.exports.IssueCertificates = function (req, res) {
 
 module.exports.sendEmail = function (req, res) {
     console.log("Send Email!");
+    var emails = [];
+    student.find({InstituteID: req.session.uid}, {_id: 0, data: 1}, function(err, arr){
+        data_arr = arr.map( function(u) { return u.data; } );
+        for (i = 0;i < data_arr.length;i++){
+            for (j = 0;j < data_arr[i].length;j++){
+                emails.push(data_arr[i][j].Email);
+            }
+        }
+        if (emails.length == 0){
+            console.log("No recipients found for sending Invites!");
+            return;
+        }
+        email_str = emails.toString();
+        console.log(email_str);
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'edcertsweb@gmail.com',
+              pass: 'blockchain'
+            }
+        });
+          
+        var mailOptions = {
+            from: 'edcertsweb@gmail.com',
+            to: email_str,
+            subject: 'Invitation for receiving certificate | Edcerts',
+            text: 'Dear user,\n\nYou have been sent an invitation to add the institute XYZ in Edcerts application. This will allow you to receive certificate from the institute. Please click on the below link to continue:\n\nhttps://edcert.herokuapp.com \n\nRegards,\nTeam Edcerts'
+        };
+          
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+        });
+    });
+
     res.redirect('/Institute/Recipients')
 }
