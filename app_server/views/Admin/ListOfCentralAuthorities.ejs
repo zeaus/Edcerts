@@ -1,0 +1,58 @@
+<% include /partials/Header %>
+</head>
+<body>
+
+  <% include /partials/navbar %>
+
+  <div id="stats">
+    <p class="blue-text">Total Central Authorities = <%=result.length %></p>
+  </div>
+  <ul class="collapsible ">
+
+      <% result.forEach( function(uni) { %>
+    <li id="li<%=uni.ID %>">
+      <div class="collapsible-header blue-text"><i class="material-icons">trip_origin</i><b><%=uni.ID %></b></div>
+      <div class="collapsible-body">
+        <div><b> <span>Number of Universities : </span></b> <span>4</span></div>
+        <div> <b> <span>Number of Campuses : </span></b> <span>4</span></div>
+        <div> <span>lorem ipsum </span></div>
+        <div class=" right" > <a href="" class="red-text remove" data-id="<%=uni.ID %>"><span>Remove</span></a></div>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+
+$('.remove').click( function() {
+  
+  removeItem(this);
+  event.preventDefault();
+  
+  
+  });
+
+  function removeItem(removeButton)
+{
+ 
+  var title=$(removeButton).attr("data-id");
+
+  $.ajax({
+    url:'/delete/Admin/'+title,
+    type: 'DELETE',
+    success: function (result) {
+        location.reload();
+      
+}
+});
+
+
+}
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,86 @@
+<div class="card hovercard">
+  <div class="card-background white">
+  </div>
+  <div>
+    <h4>Degree</h4>
+    <a id="UploadCerti" class="btn-small" onclick="$('#modal1').modal('open');">Create</a>
+
+  </div>
+
+  <br>
+  <ul id="CertOptions">
+    <li style="display:inline;"><a href="/Institute/Certificate/Issued">Issued</a></li>
+    <li style="display:inline;"><a href="/Institute/Certificate/Draft">Drafts</a></li>
+  </ul>
+</div>
+
+
+
+<div id="modal1" class="modal modalDegreeCreate">
+  <div class="modal-content">
+
+
+    <form id="DegreeForm" class="col s10" method="POST" action="/CreateDegree">
+
+      <div class="input-field hoverable col s10 Form2Field">
+        <i class="material-icons prefix Form2Field">description</i>
+        <input id="title" name="title" type="text" class="validate">
+        <label for="title">Degree Title</label>
+      </div>
+
+      <p>
+        <label>
+          <input value="Recepient" type="checkbox" name="feature" />
+          <span>Name</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Last Name" name="feature" />
+          <span>Father Name</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="CGPA" name="feature" />
+          <span>CGPA</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Date of Graduation" name="feature" />
+          <span>Date of Graduation</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Batch" name="feature" />
+          <span>Batch</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Email" name="feature" />
+          <span>Email</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Program" name="feature" />
+          <span>Program</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" value="Institution" name="feature" />
+          <span>Institute Name</span>
+        </label>
+      </p>
+
+
+    </form>
+  </div>
+
+  <a class="modal-close waves-effect right waves-green btn-flat" id="createbtn">Create</a>
+
+</div>

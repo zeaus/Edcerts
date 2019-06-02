@@ -1,0 +1,122 @@
+<% include /partials/Header %>
+
+</head>
+
+<body>
+  <% include /partials/navbar %>
+  <div>
+    <h4>Recipients</h4>
+
+    <form enctype="multipart/form-data">
+      <input name="file" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+
+    </form>
+    <progress value="0"></progress>
+
+  </div>
+
+
+  <div id="recep">
+    <table class="centered responsive-table">
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>List Name</th>
+          <th>Issue Date</th>
+          <th>Total</th>
+          <th>Status</th>
+
+        </tr>
+      </thead>
+
+      <tbody id="tablebody">
+
+        <% recep.forEach( item => { %>
+        <tr>
+          <td> <label>
+              <input class="check" type="checkbox" id="<%= item._id %>" />
+              <span class="label-text"></span>
+            </label>
+          </td>
+          <td>
+            <%= item.Name %>
+          </td>
+          <td>
+            <%= (new Date(item.IssueDate)).toLocaleDateString() %>
+          </td>
+          <td>
+            <%= item.Records %>
+          </td>
+          <td>
+            <%= item.Status %>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <div id="RecepOptions">
+    <form action="/sendEmail" method="post">
+        <button name="sendInvite" value="invite">Invite</button>
+    </form>
+    <!-- <div><a href=""> <span>Invite</span></a></div> -->
+    <div><a href=""><span>Delete</span></a></div>
+  </div>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(':file').on('change', function () {
+    var file = this.files[0];
+
+
+
+
+
+    $.ajax({
+      // Your server script to process the upload
+      url: '/uploadRecipient',
+      type: 'POST',
+
+      // Form data
+      data: new FormData($('form')[0]),
+
+      // Tell jQuery not to process data or worry about content-type
+      // You *must* include these options!
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        var d = new Date(data.result.IssueDate);
+        data = data.result;
+        $('#tablebody').append("<tr><td> <label><input class='check'  type='checkbox' id=" + data._id +
+          "/><span class='label-text'></span></label></td>" +
+          "<td>" + data.Name + "</td><td>" +
+          d.toLocaleDateString() + "</td><td>" + data.Records + " </td><td>" + data.Status + "</td></tr>")
+
+      },
+      // Custom XMLHttpRequest
+      xhr: function () {
+        var myXhr = $.ajaxSettings.xhr();
+        if (myXhr.upload) {
+          // For handling the progress of the upload
+          myXhr.upload.addEventListener('progress', function (e) {
+            if (e.lengthComputable) {
+              $('progress').attr({
+                value: e.loaded,
+                max: e.total,
+              });
+            }
+          }, false);
+        }
+        return myXhr;
+      }
+    });
+
+
+
+  });
+</script>
+
+</html>

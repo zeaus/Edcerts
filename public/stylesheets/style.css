@@ -1,0 +1,314 @@
+@color1 = #fff;
+@color2 = #000;
+@color3 = #000;
+
+.material-icons.active {
+  color: color1 !important;
+}
+
+.material-icons {
+  color: white !important;
+}
+
+/* .row .input-field {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  left: -12px !important;
+} */
+
+.row .input-field input:focus+label{
+  color: rgba(255, 255, 255, 1) !important;
+  /* left: -12px !important; */
+}
+
+.row .input-field label{
+  color: rgba(255, 255, 255, 1) !important;
+  /* left: -12px !important; */
+}
+
+/* 
+.row .input-field:focus {
+  background-color: white !important;
+  left: -12px !important;
+} */
+
+.input-field input:focus+label {
+  top: -2px !important;
+  left: 8px !important;
+  color: black !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+  top: -20px !important;
+  left: -12px !important;
+  color: white !important;
+
+  border-bottom: 1px solid #FFFFFF !important;
+  box-shadow: 0 1px 0 0 #FFFFFF !important
+}
+
+.row .input-field input {
+  color: white !important;
+  left: -12px !important;
+}
+
+#ProjectTitle {
+  margin-top: 15vw;
+  z-index: 1;
+  position: relative;
+}
+
+nav{
+  background-color: rgba(0,0,0,0);
+  background: rgba(255, 255, 255, 0.2);
+  /* color: rgba(0, 0, 0, 0.322); */
+}
+
+nav:active{
+  background: rgba(255, 255, 255, 0.6);
+}
+
+nav:hover{
+  background: rgba(255, 255, 255, 0.0);
+}
+
+nav:focus{
+  background: rgba(255, 255, 255, 0.0);
+}
+
+nav::after{
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.container2 {
+  width: 40vw;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 07vw;
+
+}
+
+nav .brand-logo {
+  padding-left: 1.1em;
+}
+
+nav {
+  z-index: -2 !important;
+}
+
+.btn-small {
+  background-color: color1
+}
+
+/**/
+/* ---- reset ---- */
+body {
+  margin: 0;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+  background-image: url("https://internetofbusiness.com/wp-content/uploads/2018/03/s3-news-tmp-980-blockchain-2x1-940-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.nav-wrapper .input-field input:focus{
+  padding-left: 1em !important;
+  width: 100% !important;
+  background-color: #eee;
+}
+
+.nav-wrapper .input-field input{
+  padding-left: 1em !important;
+  width: 100% !important;
+  color: #fff;
+}
+
+.button-li{
+  background: #FFF;  
+}
+
+.collapsible {
+  margin-top: 2% !important;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#piechart {
+  margin: 0 auto;
+
+}
+
+#stats {
+  margin-left: 2% !important;
+}
+
+#Form2 {
+  margin-top: 8% !important;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.Form2Field.active {
+  color: color1 !important;
+
+}
+
+.Form2Field input:focus+label {
+  color: color1 !important;
+}
+
+/* label underline focus color */
+.Form2Field input:focus {
+  border-bottom: 1px solid color1 !important;
+  box-shadow: 0 1px 0 0 color1 !important
+}
+
+.row .Form2Field input {
+  color: white !important;
+}
+
+#recep {
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: 0 !important;
+}
+
+#UploadRecep,
+#UploadCerti,
+#RecepOptions,
+#CerOps,
+.card-background,
+h5,
+#Fields {
+  margin-left: 2%;
+}
+
+#CertOptions li {
+  margin-left: 1%;
+  padding: 2%;
+}
+
+.searchbar {
+  width: 60%;
+  margin: 0 auto;
+
+}
+
+.searchbarwrapper {
+  margin: 10 auto;
+  color: #000 !important;
+}
+
+nav .input-field label {
+  top: -2px !important;
+  left: 12px !important;
+  color: white !important;
+}
+
+nav .input-field label:focus {
+  top: -20px !important;
+  left: 12px !important;
+  color: black !important;
+}
+
+.certbtn {
+  background: none;
+  /*this for transparent button*/
+  border: 1px solid color3;
+  /* this is for button border*/
+  border-radius: 25px;
+}
+
+#A4Layout {
+
+  background-color: lightblue;
+  min-width: 15vw;
+  max-width: 65vw;
+  min-height: 140vh;
+  max-height: 140vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textColor{
+  color: white;
+}
+
+.btn{
+  background: #4CCFC5 !important;
+}
+
+#logo {
+
+  margin-left: 35%;
+
+  position: relative;
+  z-index: 1;
+  width: 30%;
+  height: auto;
+}
+
+#modal1 {
+  margin-top: 2%;
+  height: 100%;
+}
+.modal .modal-content {
+  padding: 15px;
+}
+.modal {
+  width: 55% !important;
+  height: 85% !important;
+  overflow: visible
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+#chart_div {
+  margin-left: 20%;
+}
+
+.modalDegreeCreate {
+  width: 55% !important;
+  max-height: 81% !important;
+  overflow: visible
+}
+
+.modalDegreesend {
+  width: 55% !important;
+  max-height: 42% !important;
+  overflow: visible
+}
+
+#PasswordDiv {
+  width: 50vw !important;
+}
+
+#PassPhrase {
+  border: 1px solid black;
+  width: 40vw !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}

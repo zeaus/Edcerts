@@ -1,0 +1,55 @@
+<% include /partials/Header %>
+
+</head>
+
+<body>
+  <% include /partials/navbar %>
+
+  <div class="row center" id="PasswordDiv">
+    <br>
+
+    <b>Change Password</b>
+    <form class="col s12" method="POST" action="/setPassword" id="PasswordEntry">
+
+      <div class="row">
+        <div class="input-field hoverable col s12">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="password1" name="password1" type="password" class="validate">
+          <label for="ID">New Password</label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="input-field hoverable col s12">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="password2" name="password2" type="password" class="validate " equalTo='#password1'>
+          <label for="password">Confirm Password</label>
+        </div>
+
+      </div>
+
+      <a class="waves-effect waves-light btn-small right hoverable white-text " id="submitform" value="Done">Done</a>
+    </form>
+
+  </div>
+  <br><br>
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+
+  document.getElementById("submitform").addEventListener('click', function (params) {
+    if ($('#password1').val() == $('#password2').val())
+      $('#PasswordEntry').submit();
+      else
+      alert("Passwords Do Not Match");
+  });
+  
+</script>
+
+</html>
