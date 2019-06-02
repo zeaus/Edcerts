@@ -1,6 +1,7 @@
 @color1 = #fff;
 @color2 = #000;
 @color3 = #000;
+@color4 = #04abc;
 
 .material-icons.active {
   color: color1 !important;

@@ -22,6 +22,7 @@ module.exports.login = function (req, res) {
   // else{
   //   res.redirect('/Institute/landing');
   // }
+  console.log(ID);
 
   User.findOne({
     ID: ID
@@ -80,24 +81,14 @@ module.exports.login = function (req, res) {
                 res.redirect('/Institute/Dashboard');
               }
             });
-
           }
-
-
         } else {
           console.log('Incorrect Password!');
           res.redirect('/SignIn', 205);
-
         }
-
       });
-
-
-
-
     }
   });
-
 
 }
 module.exports.logout = function (req, res) {
